@@ -9,5 +9,6 @@ Check out official site https://facebook.github.io/react-native/docs/getting-sta
 ```
 git clone https://github.com/ntourne/react-native-albums
 cd react-native-albums
+npm install
 react-native run-ios     # or react-native run-android
 ``` 
