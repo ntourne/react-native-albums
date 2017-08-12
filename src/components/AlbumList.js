@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { ScrollView, Text } from 'react-native';
 import axios from 'axios';
 import AlbumDetail from './AlbumDetail';
 import Card from './Card';
@@ -24,12 +24,8 @@ class AlbumList extends Component {
                 <AlbumDetail key={album.title} album={album} />
             );
         else
-            return <Text>Loading...</Text>;
-        /*
-        return this.state.albums.map(album => 
-            <Text key={album.title}>{album.title}</Text>
-        );
-        */
+            return <Text style={styles.loadingMsg}>Loading...</Text>;
+
     }
 
     componentDidMount() {
@@ -39,12 +35,19 @@ class AlbumList extends Component {
     render() {
         console.log(this.state);
         return (
-            <View>
+            <ScrollView>
                 {this.renderAlbums()}
-            </View>
+            </ScrollView>
         )
     }
 }
 
+const styles = {
+    loadingMsg: {
+        marginLeft: 10,
+        marginTop: 15,
+        fontSize: 16
+    }
+}
 
 export default AlbumList;
